@@ -7,26 +7,29 @@ int main(){
 	
 	int t;
 	cin >> t;
-	while(t--){
+	while(t--){	
 		
-		string a;
-		cin >> a;
-		int n = a.length();
-		string alpha("abcdefghijklmnopqrstuvwxyz");
-		for(char i=0; i<n; ++i){
-			for(int j = 0; j <26; ++j){
-				if(a[i] == alpha[j]){
-					if(a[i] == 'z')
-						cout <<alpha[j-1];
-					else
-						cout << alpha[j+1];
-					break;
-				}
+		string s;
+		cin >> s;
+		int len = s.size();
+		for(int i = 0; i<len; ++i){
+			
+			if(i%2==0){
+				
+				if(s[i]=='a') s[i]='b';
+				else
+					s[i]='a';
+			}
+			else{
+				if(s[i]=='z')s[i]='y';
+				else
+					s[i]='z';
+				
 			}
 				
 		}
+		cout << s <<endl;
 		
-	cout <<endl;
 	
 	}
 }
