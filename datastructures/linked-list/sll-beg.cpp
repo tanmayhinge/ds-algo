@@ -23,7 +23,7 @@ void Print(){
 void insertBeginning(int x){
 	
 	Node* temp = new Node();
-	temp -> data = x;
+	temp -> data = x; // dereferencing
 	temp -> next = head;
 	head = temp;
 }
@@ -41,8 +41,5 @@ int main(){
 		Print();
 	}
 	return 0;
-	
-	
-	
 	
 }

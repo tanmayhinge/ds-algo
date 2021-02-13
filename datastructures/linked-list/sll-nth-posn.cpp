@@ -1,39 +1,91 @@
-#include <iostream>
+#include <bits/stdc++.h>
+
 using namespace std;
 
-struct Node {
+
+struct Node{
 	int data;
 	Node* next;
 };
-
 Node* head = new Node();
-
-void insertBeginning(int x){
-	Node * temp = new Node();
-	temp -> data = x;
-	temp -> next = head;
-	head = temp;
-}
-
-void printList(){
+void Print(){
 	Node* temp = head;
-	while(temp != NULL){
-		cout << temp -> data << " ";
-		temp = temp-> next;
+	while (temp!=NULL)
+	{
+		cout << temp->data << " ";
+		temp = temp->next;
 	}
 	cout << endl;
+	
+	
+}
+
+void Insert(int num, int position){
+
+	Node* temp1 = new Node();
+	temp1->data= num;
+	temp1->next=NULL;
+	if(position==1){
+		temp1->next=head;
+		head=temp1;
+		return;
+	}
+	Node* temp2 = head;
+	for(int i=0; i < position-2; ++i){
+		temp2 = temp2 -> next;
+	}
+	temp1 -> next = temp2 -> next;
+	temp2 -> next = temp1;
 
 }
+
 
 int main(){
+	
 	head = NULL;
-	cout << "How many no to be added? : " << endl;
-	int n, x;
+	int n, x, p;
 	cin >> n;
-	while(n--){
-		cout << "Enter the no: " << endl;
-		cin >> x;
-		insertBeginning(x);
-		printList();
+	for(int i = 0; i < n; ++i){
+		cin >> x >> p;
+		Insert(x,p);
+		Print();
 	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
