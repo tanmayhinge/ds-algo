@@ -1,10 +1,5 @@
-
 #include <iostream>
 using namespace std;
-
-
-
-
 
 struct Node {
 	int data;
@@ -21,9 +16,21 @@ void printList(){
 		temp = temp-> next;
 	}
 	cout << endl;
-
 }
 
+void Reverse(){
+	Node* current = head;
+	Node* prev = NULL;
+	Node* neXt;
+	while(current!=NULL){
+		neXt=current->next;
+		current->next=prev;
+		prev=current;
+		current=neXt;
+	}
+	
+	head = prev;
+}
 
 void insertBeginning(int num){
 	Node * temp = new Node();
@@ -75,6 +82,7 @@ int main(){
 		cout << "1: Insert Beginning" << endl;
 		cout << "2: Insert at Nth position" << endl;
 		cout << "3. Delete from nth posn" <<endl;
+		cout << "4. Reverse" << endl;
 		cout << "5: Exit" << endl;
 		cout << "----------------" << endl;
 		int s;
@@ -99,6 +107,10 @@ int main(){
 			cout << "Which position?" << endl;
 			cin >> p;
 			Delete(p);
+			printList();
+			break;
+		case 4:
+			Reverse();
 			printList();
 			break;
 		case 5:
