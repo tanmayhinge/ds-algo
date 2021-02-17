@@ -17,16 +17,27 @@ struct Node* NewNode(int x){
 
 Node* head = new Node();
 
-int insertBeginning(int x){
+void insertBeginning(int x){
     Node* temp = NewNode(x); 
     if(head==NULL){
-        
+        head = temp;
+		return;
     }
+	head->prev=temp;
+	temp->next=head;
+	head = temp;
 
 }
 
 int printList(){
+	Node* temp = head;
+	while (temp!=NULL){
+		cout<<temp->data<<" ";
+		temp=temp->next;
+	}
+	cout<<endl;
 
+	
 }
 
 int main(){
@@ -37,9 +48,6 @@ int main(){
 		cout << "Choose:" << endl;
 		cout << "----------------" << endl;
 		cout << "1: Insert Beginning" << endl;
-		cout << "2: Insert at Nth position" << endl;
-		cout << "3. Delete from nth posn" <<endl;
-		cout << "4. Reverse" << endl;
 		cout << "5: Exit" << endl;
 		cout << "----------------" << endl;
 		int s;
